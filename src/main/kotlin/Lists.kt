@@ -275,63 +275,121 @@ class Lists {
          * Example: removeAt(1, "abcd".toList())
          * Returns ([a, c, d], b)
          */
-        public fun removeAt(list : List<Int>) : Boolean {
+        public fun <T> removeAt(index: Int, list : List<T>) : Pair<List<T>, T> {
+            val newList: MutableList<T> = mutableListOf()
+            val removedItem = list[index]
+
+            list.forEachIndexed { idx, t ->
+                if (index != idx) {
+                    newList.add(t)
+                }
+            }
+
+            val tuple: Pair<List<T>, T> = Pair(newList, removedItem)
+            return tuple;
+        }
+
+        /**
+         * P21 (*) Insert an element at a given position into a list.
+         * Example: insertAt('X', 1, "abcd".toList())
+         * Returns [a, X, b, c, d]
+         */
+        public fun insertAt(list : List<Int>) : Boolean {
+            return true;
+        }
+
+        /**
+         * P22 (*) Create a list containing all integers within a given range.
+         * Example: range(4, 9)
+         * Returns [4, 5, 6, 7, 8, 9]
+         */
+        public fun range(list : List<Int>) : Boolean {
+            return true;
+        }
+
+        /**
+         * P23 (*) Extract a given number of randomly selected elements from a list.
+         * Make sure there is a way to produce deterministic results.
+         * Example: randomSelect(3, "abcdefgh".toList())
+         * Returns [c, h, f]
+         */
+        public fun randomSelect(list : List<Int>) : Boolean {
+            return true;
+        }
+
+        /**
+         * P24 (*) Lotto: Draw N different random numbers from the set 1..M.
+         * Make sure there is a way to produce deterministic results.
+         * Example: lotto(3, 49)
+         * Returns [32, 28, 8]
+         */
+        public fun lotto(list : List<Int>) : Boolean {
+            return true;
+        }
+
+        /**
+         * P25 (*) Generate a random permutation of the elements of a list.
+         * Make sure there is a way to produce deterministic results.
+         * Hint: Use the solution of problem P23.
+         * Example: randomPermute("abcdef".toList())
+         * Returns [d, b, e, f, a, c]
+         */
+        public fun randomPermute(list : List<Int>) : Boolean {
+            return true;
+        }
+
+        /**
+         * P26 (**) Generate the combinations of K distinct objects chosen from the N elements of a list.
+         * In how many ways can a committee of 3 be chosen from a group of 12 people?
+         * There are C(12,3) = 220 possibilities, where C(N,K) denotes binomial coefficient.
+         * For pure mathematicians, this result may be great. But we want to really generate all the possibilities.
+         * Example: combinations(3, "abcde".toList())
+         * Returns [[c, b, a], [d, b, a], [e, b, a], [d, c, a], [e, c, a],
+         * [e, d, a], [d, c, b], [e, c, b], [e, d, b], [e, d, c]]
+         */
+        public fun combinations(list : List<Int>) : Boolean {
+            return true;
+        }
+
+        /**
+         * P27 (**) Group the elements of a set into disjoint subsets.
+         * a) In how many ways can a group of 9 people work in 3 disjoint subgroups of 2, 3 and 4 persons?
+         * Write a function that generates all the possibilities.
+         * Example: group3(listOf("Aldo", "Beat", "Carla", "David", "Evi", "Flip", "Gary", "Hugo", "Ida"))
+         * Returns [[["Ida", "Hugo", "Gary", "Flip"], ["Evi", "David", "Carla"], ["Beat", "Aldo"]], ...
+         * b) Generalize the above predicate in a way that we can specify a list of group sizes and the predicate
+         * will return a list of groups.
+         * Example: group(listOf(2, 2, 5), listOf("Aldo", "Beat", "Carla", "David", "Evi", "Flip", "Gary", "Hugo", "Ida"))
+         * Returns [[["Ida", "Hugo", "Gary", "Flip", "Evi"], ["David", "Carla"], ["Beat", "Aldo"]], ...
+         * Note that we do not want permutations of the group members, i.e. [[Aldo, Beat], ...]]
+         * is the same solution as [[Beat, Aldo], ...]. However, [[Aldo, Beat], [Carla, David], ...] and
+         * [[Carla, David], [Aldo, Beat], ...] are considered to be different solutions.
+         * You may find more about this combinatorial problem in a good book on discrete mathematics under
+         * the term multinomial coefficients.
+         */
+        public fun group3(list : List<Int>) : Boolean {
+            return true;
+        }
+
+        /**
+         * P28 (*) Sorting a list of lists according to length of sublists.
+         * a) We suppose that a list contains elements that are lists themselves. The objective is to sort elements
+         * of the list according to their length. E.g. short lists first, longer lists later, or vice versa.
+         * Example: lengthSort(listOf("abc".toList(), "de".toList(), "fgh".toList(), "de".toList(), "ijkl".toList(),
+         * "mn".toList(), "o".toList()))
+         * Returns [[o], [d, e], [d, e], [m, n], [a, b, c], [f, g, h], [i, j, k, l]]
+         * b) Again, we suppose that a list contains elements that are lists themselves. But this time the
+         * objective is to sort elements according to their length frequency; i.e. lists with rare lengths are placed
+         * first, others with more frequent lengths come later.
+         * Example: lengthFreqSort(listOf("abc".toList(), "de".toList(), "fgh".toList(), "de".toList(), "ijkl".toList(),
+         * "mn".toList(), "o".toList()))
+         * Returns [[i, j, k, l], [o], [a, b, c], [f, g, h], [d, e], [d, e], [m, n]]
+         * Note that in the above example, the first two lists in the result have length 4 and 1 and both lengths
+         * appear just once. The third and fourth lists have length 3 and there are two list of this length.
+         * Finally, the last three lists have length 2. This is the most frequent length.
+         */
+        public fun lengthSort(list : List<Int>) : Boolean {
             return true;
         }
     }
 }
-
-//
-//P21 (*) Insert an element at a given position into a list.
-//Example:
-//
-//> insertAt('X', 1, "abcd".toList())
-//[a, X, b, c, d]
-//P22 (*) Create a list containing all integers within a given range.
-//Example:
-//
-//> range(4, 9)
-//[4, 5, 6, 7, 8, 9]
-//P23 (*) Extract a given number of randomly selected elements from a list.
-//Make sure there is a way to produce deterministic results. Example:
-//
-//> randomSelect(3, "abcdefgh".toList())
-//[c, h, f]
-//P24 (*) Lotto: Draw N different random numbers from the set 1..M.
-//Make sure there is a way to produce deterministic results. Example:
-//
-//> lotto(3, 49)
-//[32, 28, 8]
-//P25 (*) Generate a random permutation of the elements of a list.
-//Make sure there is a way to produce deterministic results. Hint: Use the solution of problem P23. Example:
-//
-//> randomPermute("abcdef".toList())
-//[d, b, e, f, a, c]
-//P26 (**) Generate the combinations of K distinct objects chosen from the N elements of a list.
-//In how many ways can a committee of 3 be chosen from a group of 12 people? There are C(12,3) = 220 possibilities, where C(N,K) denotes binomial coefficient. For pure mathematicians, this result may be great. But we want to really generate all the possibilities. Example:
-//
-//> combinations(3, "abcde".toList())
-//[[c, b, a], [d, b, a], [e, b, a], [d, c, a], [e, c, a], [e, d, a], [d, c, b], [e, c, b], [e, d, b], [e, d, c]]
-//P27 (**) Group the elements of a set into disjoint subsets.
-//a) In how many ways can a group of 9 people work in 3 disjoint subgroups of 2, 3 and 4 persons? Write a function that generates all the possibilities. Example:
-//
-//> group3(listOf("Aldo", "Beat", "Carla", "David", "Evi", "Flip", "Gary", "Hugo", "Ida"))
-//[[["Ida", "Hugo", "Gary", "Flip"], ["Evi", "David", "Carla"], ["Beat", "Aldo"]], ...
-//b) Generalize the above predicate in a way that we can specify a list of group sizes and the predicate will return a list of groups. Example:
-//
-//> group(listOf(2, 2, 5), listOf("Aldo", "Beat", "Carla", "David", "Evi", "Flip", "Gary", "Hugo", "Ida"))
-//[[["Ida", "Hugo", "Gary", "Flip", "Evi"], ["David", "Carla"], ["Beat", "Aldo"]], ...
-//Note that we do not want permutations of the group members, i.e. [[Aldo, Beat], ...]] is the same solution as [[Beat, Aldo], ...]. However, [[Aldo, Beat], [Carla, David], ...] and [[Carla, David], [Aldo, Beat], ...] are considered to be different solutions.
-//
-//You may find more about this combinatorial problem in a good book on discrete mathematics under the term multinomial coefficients.
-//
-//P28 (*) Sorting a list of lists according to length of sublists.
-//a) We suppose that a list contains elements that are lists themselves. The objective is to sort elements of the list according to their length. E.g. short lists first, longer lists later, or vice versa. Example:
-//
-//> lengthSort(listOf("abc".toList(), "de".toList(), "fgh".toList(), "de".toList(), "ijkl".toList(), "mn".toList(), "o".toList()))
-//[[o], [d, e], [d, e], [m, n], [a, b, c], [f, g, h], [i, j, k, l]]
-//b) Again, we suppose that a list contains elements that are lists themselves. But this time the objective is to sort elements according to their length frequency; i.e. lists with rare lengths are placed first, others with more frequent lengths come later. Example:
-//
-//> lengthFreqSort(listOf("abc".toList(), "de".toList(), "fgh".toList(), "de".toList(), "ijkl".toList(), "mn".toList(), "o".toList()))
-//[[i, j, k, l], [o], [a, b, c], [f, g, h], [d, e], [d, e], [m, n]]
-//Note that in the above example, the first two lists in the result have length 4 and 1 and both lengths appear just once. The third and fourth lists have length 3 and there are two list of this length. Finally, the last three lists have length 2. This is the most frequent length.
