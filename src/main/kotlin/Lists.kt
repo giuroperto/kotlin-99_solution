@@ -62,14 +62,26 @@ class Lists {
 
             return reversedList
         }
+
+        /**
+         * P06 (*) Find out whether a list is a palindrome.
+         * Example: isPalindrome(listOf(1, 2, 3, 2, 1))
+         * Returns true
+         */
+        public fun isPalindrome(list : List<Int>) : Boolean {
+            var start = 0
+            var end = list.size - 1
+
+            while (start < end) {
+                if (list[start] != list[end]) return false;
+                start++;
+                end--;
+            }
+            return true;
+        }
     }
 }
 
-//P06 (*) Find out whether a list is a palindrome.
-//Example:
-//
-//> isPalindrome(listOf(1, 2, 3, 2, 1))
-//true
 //P07 (*) Flatten a nested list structure.
 //Example:
 //
