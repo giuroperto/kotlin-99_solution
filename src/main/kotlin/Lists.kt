@@ -99,16 +99,12 @@ class Lists {
 
             while (index <= list.size - 1) {
                 if (list[index] is List<*>) {
-                    (list[index] as List<T>).forEach {
-                        newList.add(it);
-                    }
+                    newList.addAll(flatten(list[index] as List<T>))
                 } else {
                     newList.add(list[index])
                 }
-
                 index++;
             }
-
             return newList
         }
 
