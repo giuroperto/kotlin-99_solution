@@ -115,8 +115,17 @@ class Lists {
          * Example: compress("aaaabccaadeeee".toList())
          * Returns [a, b, c, a, d, e]
          */
-        public fun compress(list : List<Int>) : Boolean {
-            return true;
+        public fun <T> compress(list : List<T>) : List<T> {
+            val newList: MutableList<T> = mutableListOf()
+            var index = 0;
+
+            while (index <= list.lastIndex) {
+                if (index == 0 || list[index] != list[index - 1]) {
+                    newList.add(list[index])
+                }
+                index++;
+            }
+            return newList
         }
 
         /**
