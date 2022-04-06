@@ -13,7 +13,9 @@ fun main(args: Array<String>) {
 //    println(Lists.isPalindrome(sampleList))
 //    println(Lists.isPalindrome(palindromeList))
 //    println(Lists.flatten(listToFlat))
-    println(Lists.compress("aaaabccaadeeee".toList()))
+//    println(Lists.compress("aaaabccaadeeee".toList()))
+    println(Lists.pack("aaaabccaadeeee".toList()))
+
 
 
 }
