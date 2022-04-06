@@ -8,8 +8,8 @@ class Lists {
          * Example: last(listOf(1, 1, 2, 3, 5, 8))
          * Returns 8
          */
-        public fun last(list : List<*>) : Any {
-            return list[list.size - 1] ?: -1
+        public fun <T> last(list : List<T>) : T {
+            return list[list.lastIndex]
         }
 
         /**
@@ -17,8 +17,14 @@ class Lists {
          * Example: penultimate(listOf(1, 1, 2, 3, 5, 8))
          * Returns 5
          */
-        public fun penultimate(list : List<*>) : Any {
-            return list[list.size - 2] ?: -1
+        public fun <T> penultimate(list : List<T>) : T? {
+            var item: T? = null
+            try {
+                item = list[list.size - 2]
+            } catch (e: ArrayIndexOutOfBoundsException) {
+                println("Index is out of bound!")
+            }
+            return item;
         }
 
         /**
@@ -27,14 +33,14 @@ class Lists {
          * Example: nth(2, listOf(1, 1, 2, 3, 5, 8))
          * Returns 2
          */
-        public fun nth(index: Int, list : List<*>) : Any {
-            var item: Any? = null;
+        public fun <T> nth(index: Int, list : List<T>) : T? {
+            var item: T? = null;
             try {
                 item = list[index]
             } catch (e: ArrayIndexOutOfBoundsException) {
                 println("Index is out of bound!")
             }
-            return item ?: -1
+            return item
         }
 
         /**
@@ -42,7 +48,7 @@ class Lists {
          * Example: length(listOf(1, 1, 2, 3, 5, 8))
          * Returns 6
          */
-        public fun length(list : List<*>) : Int {
+        public fun <T> length(list : List<T>) : Int {
             var numberOfElements = 0
             list.forEach { _ -> numberOfElements++; }
             return numberOfElements
@@ -53,8 +59,8 @@ class Lists {
          * Example: reverse(listOf(1, 1, 2, 3, 5, 8))
          * Returns [8, 5, 3, 2, 1, 1]
          */
-        public fun reverse(list : List<Int>) : List<Int> {
-            val reversedList: MutableList<Int> = mutableListOf()
+        public fun <T> reverse(list : List<T>) : List<T> {
+            val reversedList: MutableList<T> = mutableListOf()
             var index = length(list) - 1
 
             while (index >= 0) {
@@ -70,7 +76,7 @@ class Lists {
          * Example: isPalindrome(listOf(1, 2, 3, 2, 1))
          * Returns true
          */
-        public fun isPalindrome(list : List<Int>) : Boolean {
+        public fun <T> isPalindrome(list : List<T>) : Boolean {
             var start = 0
             var end = list.size - 1
 
@@ -87,15 +93,23 @@ class Lists {
          * Example: flatten(listOf(listOf(1, 1), 2, listOf(3, listOf(5, 8))))
          * Returns [1, 1, 2, 3, 5, 8]
          */
-        public fun flatten(list : List<Int>) : Boolean {
-            val newList: MutableList<Int> = mutableListOf()
+        public fun <T> flatten(list : List<T>) : List<T> {
+            val newList: MutableList<T> = mutableListOf()
             var index = 0;
 
-            while (list[index] is List<*>) {
+            while (index <= list.size - 1) {
+                if (list[index] is List<*>) {
+                    (list[index] as List<T>).forEach {
+                        newList.add(it);
+                    }
+                } else {
+                    newList.add(list[index])
+                }
 
+                index++;
             }
 
-            return
+            return newList
         }
 
         /**
@@ -105,8 +119,8 @@ class Lists {
          * Example: compress("aaaabccaadeeee".toList())
          * Returns [a, b, c, a, d, e]
          */
-        public fun flatten(list : List<Int>) : Boolean {
-            return
+        public fun compress(list : List<Int>) : Boolean {
+            return true;
         }
 
         /**
@@ -115,8 +129,8 @@ class Lists {
          * Example: pack("aaaabccaadeeee".toList())
          * Returns [[a, a, a, a], [b], [c, c], [a, a], [d], [e, e, e, e]]
          */
-        public fun flatten(list : List<Int>) : Boolean {
-            return
+        public fun pack(list : List<Int>) : Boolean {
+            return true;
         }
 
         /**
@@ -127,8 +141,8 @@ class Lists {
          * Example: encode("aaaabccaadeeee".toList())
          * Returns [(4, a), (1, b), (2, c), (2, a), (1, d), (4, e)]
          */
-        public fun flatten(list : List<Int>) : Boolean {
-            return
+        public fun encode(list : List<Int>) : Boolean {
+            return true;
         }
     }
 }
