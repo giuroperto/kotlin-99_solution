@@ -142,18 +142,17 @@ class Lists {
             if (list.isEmpty()) return newList;
 
             while (index <= list.lastIndex) {
-                if (index == 0) {
-                    subList.add(list[index])
-                } else if (index == list.lastIndex) {
-                    subList.add(list[index])
-                    newList.add(subList.toList())
-                } else if (list[index] != list[index - 1]) {
+                if (index != 0 && list[index] != list[index - 1]) {
                     newList.add(subList.toList())
                     subList.clear()
-                    subList.add(list[index])
-                } else {
-                    subList.add(list[index])
                 }
+
+                subList.add(list[index])
+
+                if (index == list.lastIndex) {
+                    newList.add(subList.toList())
+                }
+                
                 index++;
             }
             return newList
