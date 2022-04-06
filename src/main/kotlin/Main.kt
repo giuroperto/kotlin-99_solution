@@ -14,7 +14,13 @@ fun main(args: Array<String>) {
 //    println(Lists.isPalindrome(palindromeList))
 //    println(Lists.flatten(listToFlat))
 //    println(Lists.compress("aaaabccaadeeee".toList()))
-    println(Lists.pack("aaaabccaadeeee".toList()))
+//    println(Lists.pack("aaaabccaadeeee".toList()))
+    println(Lists.encode("aaaabccaadeeee".toList()))
+//    println(Lists.encodeModified("aaaabccaadeeee".toList()))
+//    println(Lists.decode(List((4, 'a), (1, 'b), (2, 'c), (2, 'a), (1, 'd), (4, 'e))))
+//    println(Lists.encodeDirect("aaaabccaadeeee".toList()))
+//    println(Lists.duplicate("abccd".toList()))
+//    println(Lists.duplicateN(3, "abccd".toList()))
 
 
 

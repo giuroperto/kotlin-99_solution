@@ -152,7 +152,7 @@ class Lists {
                 if (index == list.lastIndex) {
                     newList.add(subList.toList())
                 }
-                
+
                 index++;
             }
             return newList
@@ -166,8 +166,16 @@ class Lists {
          * Example: encode("aaaabccaadeeee".toList())
          * Returns [(4, a), (1, b), (2, c), (2, a), (1, d), (4, e)]
          */
-        public fun encode(list : List<Int>) : Boolean {
-            return true;
+        public fun <T> encode(list : List<T>) : List<Pair<Int,T>> {
+            val packList: List<List<T>> = pack(list)
+            val runLengthEncodingList: MutableList<Pair<Int, T>> = mutableListOf()
+
+            packList.forEach {
+                val tuple: Pair<Int, T> = Pair(it.size, it[0])
+                runLengthEncodingList.add(tuple)
+            }
+
+            return runLengthEncodingList;
         }
 
         /**
