@@ -21,7 +21,7 @@ class Lists {
             var item: T? = null
             try {
                 item = list[list.size - 2]
-            } catch (e: ArrayIndexOutOfBoundsException) {
+            } catch (e: IndexOutOfBoundsException) {
                 println("Index is out of bound!")
             }
             return item;
@@ -37,7 +37,7 @@ class Lists {
             var item: T? = null;
             try {
                 item = list[index]
-            } catch (e: ArrayIndexOutOfBoundsException) {
+            } catch (e: IndexOutOfBoundsException) {
                 println("Index is out of bound!")
             }
             return item
@@ -215,8 +215,16 @@ class Lists {
          * Example: duplicate("abccd".toList())
          * Returns [a, a, b, b, c, c, c, c, d, d]
          */
-        public fun duplicate(list : List<Int>) : Boolean {
-            return true;
+        public fun <T> duplicate(list : List<T>) : List<T> {
+            val newList: MutableList<T> = mutableListOf()
+
+            for (item in list) {
+                repeat(2) {
+                    newList.add(item)
+                }
+            }
+            
+            return newList;
         }
 
         /**
