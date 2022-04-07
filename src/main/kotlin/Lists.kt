@@ -218,8 +218,24 @@ class Lists {
          * Example: encodeDirect("aaaabccaadeeee".toList())
          * Returns [(4, a), (1, b), (2, c), (2, a), (1, d), (4, e)]
          */
-        public fun encodeDirect(list : List<Int>) : Boolean {
-            return true;
+        public fun <T> encodeDirect(list : List<T>) : List<Pair<Int, T>> {
+            val runLengthEncodingList: MutableList<Pair<Int, T>> = mutableListOf()
+            var times = 0
+
+            list.forEachIndexed { index, item ->
+                if (index != 0 && item != list[index - 1]) {
+                    val tuple = Pair(times, list[index - 1])
+                    runLengthEncodingList.add(tuple)
+                    times = 0
+                }
+                times++
+                if (index == list.lastIndex) {
+                    val tuple = Pair(times, item)
+                    runLengthEncodingList.add(tuple)
+                }
+            }
+
+            return runLengthEncodingList
         }
 
         /**

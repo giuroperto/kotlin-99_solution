@@ -191,6 +191,7 @@ class Tests {
 
     // P10
     //    println(Lists.pack("aaaabccaadeeee".toList()))
+    //    println(Lists.encode("aaaabccaadeeee".toList()))
     ///**
 // * P10 (*) Run-length encoding of a list.
 // * Use the result of problem P09 to implement the so-called run-length encoding data compression method.
@@ -214,8 +215,6 @@ class Tests {
 
 
     // P11
-    //    println(Lists.encode("aaaabccaadeeee".toList()))
-
     @Test fun`modify run-length encoding to show single elements simply copied in the result list`() {
         assertEquals(listOf(Pair(4, 'a'), 'b', Pair(2, 'c'), Pair(2, 'a'), 'd', Pair(4, 'e')),
             Lists.encodeModified("aaaabccaadeeee".toList()))
@@ -255,19 +254,24 @@ class Tests {
 
 
     // P13
-    //    println(Lists.decode(List((4, 'a), (1, 'b), (2, 'c), (2, 'a), (1, 'd), (4, 'e))))
-    ///**
-// * P13 (*) Run-length encoding of a list (direct solution).
-// * Implement the so-called run-length encoding data compression method directly.
-// * I.e. don't use other methods you've written (like P09's pack); do all the work directly.
-// * Example: encodeDirect("aaaabccaadeeee".toList())
-// * Returns [(4, a), (1, b), (2, c), (2, a), (1, d), (4, e)]
-// */
-//public fun encodeDirect(list : List<Int>) : Boolean {
-//    return true;
-//}
-//
-//    println(Lists.encodeDirect("aaaabccaadeeee".toList()))
+    @Test fun`run-length encoding of empty list directly`() {
+        assertEquals(listOf(), Lists.encodeDirect(listOf<Int>()))
+    }
+
+    @Test fun`run-length encoding of a list directly`() {
+        assertEquals(listOf(Pair(4, 'a'), Pair(1, 'b'), Pair(2, 'c'), Pair(2, 'a'), Pair(1, 'd'), Pair(4, 'e')),
+            Lists.encodeDirect("aaaabccaadeeee".toList()))
+    }
+
+    @Test fun`run-length encoding of a list of single items directly`() {
+        assertEquals(listOf(Pair(1, 'a'), Pair(1, 'b'), Pair(1, 'c'), Pair(1, 'a'), Pair(1, 'd'), Pair(1, 'e')),
+            Lists.encodeDirect("abcade".toList()))
+    }
+
+    @Test fun`run-length encoding of a list of all pairs directly`() {
+        assertEquals(listOf(Pair(4, 'a'), Pair(2, 'b'), Pair(2, 'c'), Pair(2, 'a'), Pair(3, 'd'), Pair(4, 'e')),
+            Lists.encodeDirect("aaaabbccaadddeeee".toList()))
+    }
 
     // P14
     @Test fun`duplicate each element of a string list`() {
