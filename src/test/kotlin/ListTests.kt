@@ -1,7 +1,7 @@
 import org.junit.Test
 import kotlin.test.assertEquals
 
-class Tests {
+class ListTests {
 
     // Lists problems
     val sampleList: List<Int> = listOf(1, 1, 2, 3, 5, 8)
