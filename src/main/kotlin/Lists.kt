@@ -224,8 +224,16 @@ class Lists {
          * Example: duplicateN(3, "abccd".toList())
          * Returns [a, a, a, b, b, b, c, c, c, c, c, c, d, d, d]
          */
-        public fun duplicateN(list : List<Int>) : Boolean {
-            return true;
+        public fun <T> duplicateN(times: Int, list : List<T>) : List<T> {
+            val newList: MutableList<T> = mutableListOf()
+
+            for (item in list) {
+                repeat(times) {
+                    newList.add(item)
+                }
+            }
+
+            return newList;
         }
 
         /**
