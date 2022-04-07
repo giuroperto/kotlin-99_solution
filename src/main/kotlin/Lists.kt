@@ -185,8 +185,20 @@ class Lists {
          * Example: encodeModified("aaaabccaadeeee".toList())
          * Returns [(4, a), b, (2, c), (2, a), d, (4, e)]
          */
-        public fun encodeModified(list : List<Int>) : Boolean {
-            return true;
+        public fun <T : Any> encodeModified(list : List<T>) : List<Any> {
+            val packList: List<List<T>> = pack(list)
+            val runLengthEncodingList: MutableList<Any> = mutableListOf()
+
+            packList.forEach {
+                if (it.size == 1) {
+                    runLengthEncodingList.add(it[0])
+                } else {
+                    val tuple: Pair<Int, T> = Pair(it.size, it[0])
+                    runLengthEncodingList.add(tuple)
+                }
+            }
+
+            return runLengthEncodingList;
         }
 
         /**
@@ -223,7 +235,7 @@ class Lists {
                     newList.add(item)
                 }
             }
-            
+
             return newList;
         }
 

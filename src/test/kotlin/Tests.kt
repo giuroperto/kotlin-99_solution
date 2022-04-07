@@ -215,17 +215,29 @@ class Tests {
 
     // P11
     //    println(Lists.encode("aaaabccaadeeee".toList()))
-    ///**
-// * P11 (*) Modified run-length encoding.
-// * Modify the result of problem P10 in such a way that if an element has no duplicates it is simply copied
-// * into the result list. Only elements with duplicates are transferred as (N, E) terms.
-// * Example: encodeModified("aaaabccaadeeee".toList())
-// * Returns [(4, a), b, (2, c), (2, a), d, (4, e)]
-// */
-//public fun encodeModified(list : List<Int>) : Boolean {
-//    return true;
-//}
-//
+
+    @Test fun`modify run-length encoding to show single elements simply copied in the result list`() {
+        assertEquals(listOf(Pair(4, 'a'), 'b', Pair(2, 'c'), Pair(2, 'a'), 'd', Pair(4, 'e')),
+            Lists.encodeModified("aaaabccaadeeee".toList()))
+    }
+
+    @Test fun`modify run-length encoding to show single elements simply copied in the result list - all single`() {
+        assertEquals(listOf('a', 'b', 'c', 'a', 'd', 'e'), Lists.encodeModified("abcade".toList()))
+    }
+
+    @Test fun`modify run-length encoding to show single elements simply copied in the result list - all pairs`() {
+        assertEquals(listOf(Pair(4, 'a'), Pair(2, 'b'), Pair(2, 'c'), Pair(2, 'a'), Pair(3, 'd'), Pair(4, 'e')),
+            Lists.encodeModified("aaaabbccaadddeeee".toList()))
+    }
+
+    @Test fun`modify run-length encoding of empty list to show single elements simply copied in the result list`() {
+        assertEquals(listOf(), Lists.encodeModified(listOf<Int>()))
+    }
+
+//    @Test(expected = IndexOutOfBoundsException::class)
+//    fun`find the last element of an empty list`() {
+//        Lists.last(listOf<Int>())
+//    }
 
 
     // P12
