@@ -22,9 +22,9 @@ fun main(args: Array<String>) {
 //    println(Lists.duplicate("abccd".toList()))
 //    println(Lists.duplicateN(3, "abccd".toList()))
 //    println(Lists.drop(3, "abcdefghijk".toList()))
-//    println(Lists.split(3, "abcdefghijk".toList()))
+    println(Lists.split(3, "abcdefghijk".toList()))
 //    println(Lists.slice(3, 7, "abcdefghijk".toList()))
 //    println(Lists.rotate(-2, "abcdefghijk".toList()))
-    println(Lists.removeAt(1, "abcd".toList()))
+//    println(Lists.removeAt(1, "abcd".toList()))
 
 }

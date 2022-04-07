@@ -243,8 +243,21 @@ class Lists {
          * Example: split(3, "abcdefghijk".toList())
          * Returns ([a, b, c], [d, e, f, g, h, i, j, k])
          */
-        public fun split(list : List<Int>) : Boolean {
-            return true;
+        public fun <T> split(length: Int, list : List<T>) : Pair<List<T>, List<T>> {
+            val firstList: MutableList<T> = mutableListOf()
+            val secondList: MutableList<T> = mutableListOf()
+
+            list.forEachIndexed { idx, t ->
+                if (idx < length) {
+                    firstList.add(t)
+                } else {
+                    secondList.add(t)
+                }
+            }
+
+            val tuple: Pair<List<T>, List<T>> = Pair(firstList, secondList)
+
+            return tuple;
         }
 
         /**
