@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ListTests" tests="43" skipped="0" failures="0" errors="0" timestamp="2022-04-09T02:13:41" hostname="Giulias-MBP" time="0.088">
+  <properties/>
+  <testcase name="reverse a list of 1" classname="ListTests" time="0.04"/>
+  <testcase name="reverse a list of 6" classname="ListTests" time="0.001"/>
+  <testcase name="decode run-length encoded list - Int Int" classname="ListTests" time="0.002"/>
+  <testcase name="duplicate each element of a string list given a number of times 3" classname="ListTests" time="0.023"/>
+  <testcase name="duplicate each element of an int list" classname="ListTests" time="0.0"/>
+  <testcase name="find the number of elements of an empty list" classname="ListTests" time="0.002"/>
+  <testcase name="run-length encoding of a list of single items directly" classname="ListTests" time="0.0"/>
+  <testcase name="find the nth element of an empty list" classname="ListTests" time="0.002"/>
+  <testcase name="check if a list of 6 is a palindrome - false" classname="ListTests" time="0.001"/>
+  <testcase name="check if a list of strings is a palindrome - true" classname="ListTests" time="0.0"/>
+  <testcase name="modify run-length encoding to show single elements simply copied in the result list - all pairs" classname="ListTests" time="0.0"/>
+  <testcase name="decode run-length encoded list - Int String" classname="ListTests" time="0.0"/>
+  <testcase name="modify run-length encoding of empty list to show single elements simply copied in the result list" classname="ListTests" time="0.0"/>
+  <testcase name="decode run-length encoded list - empty list" classname="ListTests" time="0.0"/>
+  <testcase name="run-length encoding of a list of all pairs directly" classname="ListTests" time="0.0"/>
+  <testcase name="find the nth negative element of a list" classname="ListTests" time="0.001"/>
+  <testcase name="find the last less one element of a list of 1" classname="ListTests" time="0.0"/>
+  <testcase name="modify run-length encoding to show single elements simply copied in the result list" classname="ListTests" time="0.0"/>
+  <testcase name="run-length encoding of a list directly" classname="ListTests" time="0.0"/>
+  <testcase name="find the last less one element of an empty list" classname="ListTests" time="0.001"/>
+  <testcase name="find the last element of an empty list" classname="ListTests" time="0.0"/>
+  <testcase name="reverse a list of strings" classname="ListTests" time="0.0"/>
+  <testcase name="duplicate each element of a string list" classname="ListTests" time="0.0"/>
+  <testcase name="modify run-length encoding to show single elements simply copied in the result list - all single" classname="ListTests" time="0.001"/>
+  <testcase name="duplicate each element of an int list given a number of times 3" classname="ListTests" time="0.0"/>
+  <testcase name="decode run-length encoded list - Int Char" classname="ListTests" time="0.0"/>
+  <testcase name="duplicate each element of an empty list" classname="ListTests" time="0.001"/>
+  <testcase name="find the nth element of a list which is out of bound" classname="ListTests" time="0.0"/>
+  <testcase name="find the nth element of a list of 1" classname="ListTests" time="0.001"/>
+  <testcase name="find the nth element of a list" classname="ListTests" time="0.0"/>
+  <testcase name="check if a list of 5 is a palindrome - false" classname="ListTests" time="0.0"/>
+  <testcase name="find the last element of a list" classname="ListTests" time="0.0"/>
+  <testcase name="run-length encoding of empty list directly" classname="ListTests" time="0.0"/>
+  <testcase name="find the last less one element of a list" classname="ListTests" time="0.001"/>
+  <testcase name="find the number of elements of a list of 5" classname="ListTests" time="0.0"/>
+  <testcase name="find the number of elements of a list of 6" classname="ListTests" time="0.0"/>
+  <testcase name="duplicate each element of a list given a number of times 1" classname="ListTests" time="0.0"/>
+  <testcase name="check if a list of 6 is a palindrome - true" classname="ListTests" time="0.0"/>
+  <testcase name="duplicate each element of an empty list given a number of times 3" classname="ListTests" time="0.0"/>
+  <testcase name="check if a list of 5 is a palindrome - true" classname="ListTests" time="0.0"/>
+  <testcase name="check if an empty list is a palindrome" classname="ListTests" time="0.0"/>
+  <testcase name="reverse an empty list" classname="ListTests" time="0.0"/>
+  <testcase name="check if a list of strings is a palindrome - false" classname="ListTests" time="0.0"/>
+  <system-out><![CDATA[Index is out of bound!
+Index is out of bound!
+Index is out of bound!
+Index is out of bound!
+Index is out of bound!
+Index is out of bound!
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

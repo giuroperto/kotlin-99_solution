@@ -207,8 +207,15 @@ class Lists {
          * Example: decode(List((4, 'a), (1, 'b), (2, 'c), (2, 'a), (1, 'd), (4, 'e)))
          * Returns [a, a, a, a, b, c, c, a, a, d, e, e, e, e]
          */
-        public fun decode(list : List<Int>) : Boolean {
-            return true;
+        public fun <T> decode(list : List<Pair<Int, T>>) : List<T> {
+            val newList: MutableList<T>  = mutableListOf()
+
+            for (pair in list) {
+                repeat(pair.first) {
+                    newList.add(pair.second)
+                }
+            }
+            return newList;
         }
 
         /**
@@ -447,6 +454,68 @@ class Lists {
          */
         public fun lengthSort(list : List<Int>) : Boolean {
             return true;
+        }
+
+        /**
+         * P101 (*) Run-length encoding of a list (direct solution non duplicated).
+         * getPairCharCount receives a text and returns a List of Pair<String, Int> that is non duplicated
+         */
+        public fun <T> getPairCharCount(list: List<T>): List<Pair<T, Int>> {
+            val encodingList: MutableList<Pair<T, Int>> = mutableListOf()
+            var times = 0
+
+            list.forEachIndexed { index, item ->
+                if (index != 0 || item != list[index - 1]) {
+                    val pair: Pair<T, Int> = Pair(list[index - 1], times)
+                    encodingList.add(pair)
+                    times = 0
+                }
+                times++
+                if (index == list.lastIndex) {
+                    val pair: Pair<T, Int> = Pair(item, times)
+                    encodingList.add(pair)
+                }
+            }
+
+            return encodingList
+        }
+
+//        public fun <T> getUniquePairs(pairList : List<Pair<T, Int>>) : List<Pair<T, Int>> {
+//            val arrayOfKeys: MutableList<T> = mutableListOf()
+//
+//            pairList.forEach { item ->
+//                if (arrayOfKeys.none { item == it }) {
+//                    arrayOfKeys.add(item.first)
+//                }
+//            }
+//
+//            pairList.filter { item -> arrayOfKeys.all { item.first } }
+
+//            val arrayOfPairs: MutableList<Pair<Char, Int>> = mutableListOf()
+//            var filteredArray: MutableList<Pair<Char, Int>> = mutableListOf()
+//            var arrayOfKeys = arrayOfPairs.map { item -> item.first }.filter { item ->  }.sorted()
+
+//            filteredArray = arrayOfPairs.filter { it.first }
+//
+//
+//            arrayOfKeys.forEach(key -> {
+//                val pair = arrayOfPairs.filter(item -> item.key == key).filtro(item -> getMaxValue(item)
+//                finalArrayOfPairs.add(pair);
+//            })
+//
+//            return finalArrayOfPairs;
+//        }
+
+
+        public fun getMaxValue(list: List<Pair<String, Int>>): Pair<String, Int> {
+            var maxValue = list[0].second;
+
+            for (pair in list) {
+                if (pair.second > maxValue) {
+                    maxValue = pair.second
+                }
+            }
+            return Pair(list[0].first, maxValue);
         }
     }
 }

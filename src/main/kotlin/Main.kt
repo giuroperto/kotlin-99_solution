@@ -7,7 +7,9 @@ import LogicAndCodes.Companion.or_
 import LogicAndCodes.Companion.xor_
 
 fun main(args: Array<String>) {
-    //    println(Lists.decode(List((4, 'a), (1, 'b), (2, 'c), (2, 'a), (1, 'd), (4, 'e))))
+    val list: List<Pair<Int, Char>> = listOf(Pair(4, 'a'),
+        Pair(1, 'b'), Pair(2, 'c'), Pair(2, 'a'), Pair(1, 'd'), Pair(4, 'e'))
+        println(Lists.decode(list))
 
 // P46
 //    LogicAndCodes.printTruthTable { a, b -> a.and_(a.or_(b.not())) }

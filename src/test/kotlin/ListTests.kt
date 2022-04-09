@@ -240,6 +240,24 @@ class ListTests {
 
 
     // P12
+    @Test fun`decode run-length encoded list - empty list`() {
+        assertEquals(listOf<Char>(), Lists.decode(listOf()))
+    }
+
+    @Test fun`decode run-length encoded list - Int Char`() {
+        assertEquals(listOf('a', 'a', 'a', 'a', 'c', 'c', 'a', 'a', 'd', 'e'),
+            Lists.decode(listOf(Pair(4, 'a'), Pair(2, 'c'), Pair(2, 'a'), Pair(1, 'd'), Pair(1, 'e'))))
+    }
+
+    @Test fun`decode run-length encoded list - Int Int`() {
+        assertEquals(listOf(1, 2, 2, 3, 4, 4, 5, 2, 2, 1),
+            Lists.decode(listOf(Pair(1, 1), Pair(2, 2), Pair(1, 3), Pair(2, 4), Pair(1, 5), Pair(2, 2), Pair(1, 1))))
+    }
+
+    @Test fun`decode run-length encoded list - Int String`() {
+        assertEquals(listOf("abc", "abc", "abc", "def", "def", "klm", "klm", "klm", "klm"),
+            Lists.decode(listOf(Pair(3, "abc"), Pair(2, "def"), Pair(4, "klm"))))
+    }
     //    println(Lists.encodeModified("aaaabccaadeeee".toList()))
     ///**
 // * P12 (*) Decode a run-length encoded list.
