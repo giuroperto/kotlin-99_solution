@@ -392,29 +392,29 @@ class ListTests {
 //    return true;
 //}
 //
+    //    println(Lists.rotate(-2, "abcdefghijk".toList()))
 
 
     // P20
-    //    println(Lists.rotate(-2, "abcdefghijk".toList()))
-    ///**
-// * P20 (*) Remove the Kth element from a list.
-// * Return the list and the removed element in a Tuple. Elements are numbered from 0.
-// * Example: removeAt(1, "abcd".toList())
-// * Returns ([a, c, d], b)
-// */
-//public fun <T> removeAt(index: Int, list : List<T>) : Pair<List<T>, T> {
-//    val newList: MutableList<T> = mutableListOf()
-//    val removedItem = list[index]
-//
-//    list.forEachIndexed { idx, t ->
-//        if (index != idx) {
-//            newList.add(t)
-//        }
-//    }
-//
-//    val tuple: Pair<List<T>, T> = Pair(newList, removedItem)
-//    return tuple;
-//}
+
+    @Test fun`remove kth element from int list`() {
+        assertEquals(Pair(listOf(1, 2, 3, 5), 4), Lists.removeAt(3, listOf(1, 2, 3, 4, 5)))
+    }
+
+    @Test fun`remove kth element from string list`() {
+        assertEquals(Pair(listOf("a", "ab", "abc", "abcde"), "abcd"),
+            Lists.removeAt(3, listOf("a", "ab", "abc", "abcd", "abcde")))
+    }
+
+    @Test(expected = IndexOutOfBoundsException::class)
+    fun`remove kth element from empty list`() {
+        Lists.removeAt(3, listOf<Int>())
+    }
+
+    @Test(expected = IndexOutOfBoundsException::class)
+    fun`remove kth element out of bound from list`() {
+        Lists.removeAt(5, listOf(1, 2, 3))
+    }
 
     // P21
     //    println(Lists.removeAt(1, "abcd".toList()))

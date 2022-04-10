@@ -470,7 +470,9 @@ class Lists {
                     encodingList.add(pair)
                     times = 0
                 }
+
                 times++
+
                 if (index == list.lastIndex) {
                     val pair: Pair<T, Int> = Pair(item, times)
                     encodingList.add(pair)
