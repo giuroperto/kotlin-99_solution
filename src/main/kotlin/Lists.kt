@@ -358,8 +358,15 @@ class Lists {
          * Example: insertAt('X', 1, "abcd".toList())
          * Returns [a, X, b, c, d]
          */
-        public fun insertAt(list : List<Int>) : Boolean {
-            return true;
+        public fun <T> insertAt(item: T, position: Int, list : List<T>) : List<T> {
+            val newList: MutableList<T> = mutableListOf()
+            list.forEachIndexed { index, element ->
+                if (index == position) {
+                    newList.add(item)
+                }
+                newList.add((element))
+            }
+            return newList;
         }
 
         /**

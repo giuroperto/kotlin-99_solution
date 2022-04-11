@@ -417,17 +417,9 @@ class ListTests {
     }
 
     // P21
-    //    println(Lists.removeAt(1, "abcd".toList()))
-    //
-///**
-// * P21 (*) Insert an element at a given position into a list.
-// * Example: insertAt('X', 1, "abcd".toList())
-// * Returns [a, X, b, c, d]
-// */
-//public fun insertAt(list : List<Int>) : Boolean {
-//    return true;
-//}
-//
+    @Test fun`insert element at given position`() {
+        assertEquals(listOf('a', 'X', 'b', 'c'), Lists.insertAt('X',1, "abcd".toList()))
+    }
 }
 
 
