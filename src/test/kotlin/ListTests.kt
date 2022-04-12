@@ -433,12 +433,25 @@ class ListTests {
     fun`insert element at given position out of bounds`() {
         Lists.insertAt(1, 10, listOf(1, 2, 3, 4))
     }
+
+    // P22
+    @Test fun`create a range between two int values`() {
+        assertEquals(listOf(1, 2, 3, 4, 5), Lists.range(1, 5))
+    }
+
+    @Test fun`create a range between two int values decreasing`() {
+        assertEquals(listOf(0, 1, 2), Lists.range(2, 0))
+    }
+
+//    @Test fun`insert element at given position in empty list`() {
+//        assertEquals(listOf(), Lists.insertAt(0,0, listOf()))
+//    }
+//
+//    @Test(expected = IndexOutOfBoundsException::class)
+//    fun`insert element at given position out of bounds`() {
+//        Lists.insertAt(1, 10, listOf(1, 2, 3, 4))
+//    }
 }
-
-
-
-
-
 
 
 ///**

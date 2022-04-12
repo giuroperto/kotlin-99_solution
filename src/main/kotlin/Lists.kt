@@ -362,7 +362,7 @@ class Lists {
             if (list.size < position) throw IndexOutOfBoundsException("position higher than array size")
 
             val newList: MutableList<T> = mutableListOf()
-            
+
             list.forEachIndexed { index, element ->
                 if (index == position) {
                     newList.add(item)
@@ -377,8 +377,24 @@ class Lists {
          * Example: range(4, 9)
          * Returns [4, 5, 6, 7, 8, 9]
          */
-        public fun range(list : List<Int>) : Boolean {
-            return true;
+        public fun range(firstValue: Int, secondValue: Int) : List<Int> {
+            var startValue: Int;
+            var endValue: Int;
+            if (firstValue > secondValue) {
+                startValue = secondValue;
+                endValue = firstValue;
+            } else {
+                startValue = firstValue;
+                endValue = secondValue;
+            }
+
+            val rangeList: MutableList<Int> = mutableListOf()
+
+            while (startValue <= endValue) {
+                rangeList.add(startValue);
+                startValue++;
+            }
+            return rangeList;
         }
 
         /**
