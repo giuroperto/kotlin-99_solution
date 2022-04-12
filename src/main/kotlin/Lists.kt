@@ -359,7 +359,10 @@ class Lists {
          * Returns [a, X, b, c, d]
          */
         public fun <T> insertAt(item: T, position: Int, list : List<T>) : List<T> {
+            if (list.size < position) throw IndexOutOfBoundsException("position higher than array size")
+
             val newList: MutableList<T> = mutableListOf()
+            
             list.forEachIndexed { index, element ->
                 if (index == position) {
                     newList.add(item)

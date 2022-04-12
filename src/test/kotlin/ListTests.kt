@@ -417,8 +417,21 @@ class ListTests {
     }
 
     // P21
-    @Test fun`insert element at given position`() {
-        assertEquals(listOf('a', 'X', 'b', 'c'), Lists.insertAt('X',1, "abcd".toList()))
+    @Test fun`insert string element at given position`() {
+        assertEquals(listOf('a', 'X', 'b', 'c', 'd'), Lists.insertAt('X',1, "abcd".toList()))
+    }
+
+    @Test fun`insert int element at given position`() {
+        assertEquals(listOf(0, 1, 2, 3, 4, 5), Lists.insertAt(0,0, listOf(1, 2, 3, 4, 5)))
+    }
+
+    @Test fun`insert element at given position in empty list`() {
+        assertEquals(listOf(), Lists.insertAt(0,0, listOf()))
+    }
+
+    @Test(expected = IndexOutOfBoundsException::class)
+    fun`insert element at given position out of bounds`() {
+        Lists.insertAt(1, 10, listOf(1, 2, 3, 4))
     }
 }
 
