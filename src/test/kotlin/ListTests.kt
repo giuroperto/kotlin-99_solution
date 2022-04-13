@@ -443,25 +443,15 @@ class ListTests {
         assertEquals(listOf(0, 1, 2), Lists.range(2, 0))
     }
 
-//    @Test fun`insert element at given position in empty list`() {
-//        assertEquals(listOf(), Lists.insertAt(0,0, listOf()))
-//    }
-//
-//    @Test(expected = IndexOutOfBoundsException::class)
-//    fun`insert element at given position out of bounds`() {
-//        Lists.insertAt(1, 10, listOf(1, 2, 3, 4))
-//    }
+    @Test fun`create a range between two equal values`() {
+        assertEquals(listOf(4), Lists.range(4, 4))
+    }
+
+    @Test fun`create a range between two negative values`() {
+        assertEquals(listOf(-4, -3, -2, -1), Lists.range(-1, -4))
+    }
 }
 
-
-///**
-// * P22 (*) Create a list containing all integers within a given range.
-// * Example: range(4, 9)
-// * Returns [4, 5, 6, 7, 8, 9]
-// */
-//public fun range(list : List<Int>) : Boolean {
-//    return true;
-//}
 //
 ///**
 // * P23 (*) Extract a given number of randomly selected elements from a list.
