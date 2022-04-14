@@ -450,6 +450,19 @@ class ListTests {
     @Test fun`create a range between two negative values`() {
         assertEquals(listOf(-4, -3, -2, -1), Lists.range(-1, -4))
     }
+
+    // P24
+    @Test fun`draw 0 numbers`() {
+        assertEquals(listOf(), Lists.lotto(0, 4))
+    }
+
+    @Test fun`draw 1 numbers from 1 to 1`() {
+        assertEquals(listOf(1), Lists.lotto(1, 1))
+    }
+
+    @Test fun`draw 3 numbers from 1 to 1`() {
+        assertEquals(listOf(1, 1, 1), Lists.lotto(3, 1))
+    }
 }
 
 //
@@ -463,15 +476,7 @@ class ListTests {
 //    return true;
 //}
 //
-///**
-// * P24 (*) Lotto: Draw N different random numbers from the set 1..M.
-// * Make sure there is a way to produce deterministic results.
-// * Example: lotto(3, 49)
-// * Returns [32, 28, 8]
-// */
-//public fun lotto(list : List<Int>) : Boolean {
-//    return true;
-//}
+
 //
 ///**
 // * P25 (*) Generate a random permutation of the elements of a list.

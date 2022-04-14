@@ -413,8 +413,17 @@ class Lists {
          * Example: lotto(3, 49)
          * Returns [32, 28, 8]
          */
-        public fun lotto(list : List<Int>) : Boolean {
-            return true;
+        public fun lotto(nItems: Int, maxValue: Int) : List<Int> {
+            val arrayNumber: MutableList<Int> = mutableListOf()
+            var i = 0;
+
+            while (i < nItems) {
+                val randomNumber: Double = Math.random() * (maxValue + 1)
+                arrayNumber.add(randomNumber.toInt())
+                i++;
+            }
+
+            return arrayNumber;
         }
 
         /**
