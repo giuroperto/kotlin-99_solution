@@ -365,18 +365,27 @@ class ListTests {
 
 
     // P18
-    //    println(Lists.split(3, "abcdefghijk".toList()))
-    ///**
-// * P18 (*) Extract a slice from a list.
-// * Given two indices, I and K, the slice is the list containing the elements from and including the Ith
-// * element up to but not including the Kth element of the original list. Start counting the elements with 0.
-// * Example: slice(3, 7, "abcdefghijk".toList())
-// * Returns [d, e, f, g]
-// */
-//public fun slice(list : List<Int>) : Boolean {
-//    return true;
-//}
-//
+    @Test fun`extract a slice from a list - string`() {
+        assertEquals(listOf("d", "e", "f", "g"),
+            Lists.slice(3, 7, listOf("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k")))
+    }
+
+    @Test fun`extract a slice from a list - int`() {
+        assertEquals(listOf(1, 2), Lists.slice(1, 3, listOf(0, 1, 2, 3, 4, 5)))
+    }
+
+    @Test fun`extract a slice from a list - indices equals to 0`() {
+        assertEquals(listOf(), Lists.slice(0, 0, listOf(0, 1, 2, 3, 4, 5)))
+    }
+
+    @Test fun`extract a slice from a list - end index higher than start index`() {
+        assertEquals(listOf(), Lists.slice(3, 1, listOf(0, 1, 2, 3, 4, 5)))
+    }
+
+    @Test(expected = IndexOutOfBoundsException::class)
+    fun`extract a slice from a list - empty list`() {
+        Lists.slice(1, 2, listOf<Int>())
+    }
 
 
     // P19
@@ -456,13 +465,13 @@ class ListTests {
         assertEquals(listOf(), Lists.lotto(0, 4))
     }
 
-    @Test fun`draw 1 numbers from 1 to 1`() {
-        assertEquals(listOf(1), Lists.lotto(1, 1))
-    }
+//    @Test fun`draw 1 numbers from 1 to 1`() {
+//        assertEquals(listOf(1), Lists.lotto(1, 1))
+//    }
 
-    @Test fun`draw 3 numbers from 1 to 1`() {
-        assertEquals(listOf(1, 1, 1), Lists.lotto(3, 1))
-    }
+//    @Test fun`draw 3 numbers from 1 to 1`() {
+//        assertEquals(listOf(1, 1, 1), Lists.lotto(3, 1))
+//    }
 }
 
 //

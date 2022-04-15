@@ -1,5 +1,3 @@
-import kotlin.reflect.typeOf
-
 class Lists {
     companion object {
 
@@ -318,8 +316,16 @@ class Lists {
          * Example: slice(3, 7, "abcdefghijk".toList())
          * Returns [d, e, f, g]
          */
-        public fun slice(list : List<Int>) : Boolean {
-            return true;
+        public fun <T> slice(i: Int, k:Int, list : List<T>) : List<T> {
+            val newList: MutableList<T> = mutableListOf();
+            var iterator = i;
+
+            while (iterator < k) {
+                newList.add(list[iterator]);
+                iterator++;
+            }
+
+            return newList;
         }
 
         /**
