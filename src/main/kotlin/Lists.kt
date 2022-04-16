@@ -335,8 +335,18 @@ class Lists {
          * Example: rotate(-2, "abcdefghijk".toList())
          * Returns [j, k, a, b, c, d, e, f, g, h, i]
          */
-        public fun rotate(list : List<Int>) : Boolean {
-            return true;
+        public fun <T> rotate(places: Int, list : List<T>) : List<T> {
+            val newList: MutableList<T> = mutableListOf()
+            var i = 0;
+
+            if (places == 0) return list;
+
+            if (places > 0) {
+                
+            } else if (places < 0) {
+
+            }
+            return newList;
         }
 
         /**
