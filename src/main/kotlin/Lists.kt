@@ -337,12 +337,21 @@ class Lists {
          */
         public fun <T> rotate(places: Int, list : List<T>) : List<T> {
             val newList: MutableList<T> = mutableListOf()
+            val tempList: MutableList<T> = mutableListOf()
             var i = 0;
 
             if (places == 0) return list;
 
             if (places > 0) {
-                
+                while (i < places) {
+                    tempList.add(list[i]);
+                    i++;
+                }
+                while (i < list.size) {
+                    newList.add(list[i]);
+                    i++;
+                }
+                newList.addAll(tempList);
             } else if (places < 0) {
 
             }
