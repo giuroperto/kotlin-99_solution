@@ -387,8 +387,15 @@ class ListTests {
         Lists.slice(1, 2, listOf<Int>())
     }
 
-
     // P19
+    @Test fun`rotate a list - positive`() {
+        assertEquals("defghijkabc".toList(), Lists.rotate(3, "abcdefghijk".toList()))
+    }
+
+    @Test fun`rotate a list - negative`() {
+        assertEquals("jkabcdefghi".toList(), Lists.rotate(-2, "abcdefghijk".toList()))
+    }
+
     //    println(Lists.slice(3, 7, "abcdefghijk".toList()))
     ///**
 // * P19 (*) Rotate a list N places to the left.
