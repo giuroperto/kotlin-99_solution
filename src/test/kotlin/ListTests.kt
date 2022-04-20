@@ -396,20 +396,14 @@ class ListTests {
         assertEquals("jkabcdefghi".toList(), Lists.rotate(-2, "abcdefghijk".toList()))
     }
 
-    //    println(Lists.slice(3, 7, "abcdefghijk".toList()))
-    ///**
-// * P19 (*) Rotate a list N places to the left.
-// * Example: rotate(3, "abcdefghijk".toList())
-// * Returns [d, e, f, g, h, i, j, k, a, b, c]
-// * Example: rotate(-2, "abcdefghijk".toList())
-// * Returns [j, k, a, b, c, d, e, f, g, h, i]
-// */
-//public fun rotate(list : List<Int>) : Boolean {
-//    return true;
-//}
-//
-    //    println(Lists.rotate(-2, "abcdefghijk".toList()))
+    @Test fun`rotate a list - zero places`() {
+        assertEquals("abcdefghijk".toList(), Lists.rotate(0, "abcdefghijk".toList()))
+    }
 
+    @Test(expected = IndexOutOfBoundsException::class)
+    fun`rotate a list - empty`() {
+        Lists.rotate(1, listOf<Int>())
+    }
 
     // P20
 

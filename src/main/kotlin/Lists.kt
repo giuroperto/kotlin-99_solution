@@ -367,6 +367,8 @@ class Lists {
                 tempList.addAll(newList);
                 newList.clear();
                 newList.addAll(tempList);
+            } else {
+                return list;
             }
             return newList;
         }
