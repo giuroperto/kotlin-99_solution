@@ -533,24 +533,22 @@ class Lists {
 
         /**
          * P101 (*) Run-length encoding of a list (direct solution non duplicated).
-         * getPairCharCount receives a text and returns a List of Pair<String, Int> that is non duplicated
+         * getUniquePairCharCount receives a text and returns a List of Pair<String, Int> that is non duplicated
          */
-        public fun <T> getPairCharCount(list: List<T>): List<Pair<T, Int>> {
-            val encodingList: MutableList<Pair<T, Int>> = mutableListOf()
+//        todo transform it in unique
+        public fun <T> getUniquePairCharCount(list: List<T>): HashMap<T, Int> {
+            val encodingList: HashMap<T, Int> = HashMap();
             var times = 0
 
             list.forEachIndexed { index, item ->
                 if (index != 0 || item != list[index - 1]) {
-                    val pair: Pair<T, Int> = Pair(list[index - 1], times)
-                    encodingList.add(pair)
+                    encodingList.put(list[index - 1], times);
                     times = 0
                 }
-
                 times++
 
                 if (index == list.lastIndex) {
-                    val pair: Pair<T, Int> = Pair(item, times)
-                    encodingList.add(pair)
+                    encodingList.put(item, times);
                 }
             }
 
