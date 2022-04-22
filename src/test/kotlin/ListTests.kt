@@ -473,6 +473,17 @@ class ListTests {
 //    @Test fun`draw 3 numbers from 1 to 1`() {
 //        assertEquals(listOf(1, 1, 1), Lists.lotto(3, 1))
 //    }
+
+    // P101
+    @Test fun`get unique pair max char count`() {
+        assertEquals(hashMapOf(Pair("a", 3), Pair("b", 2), Pair("c", 2), Pair("d", 1), Pair("e", 3)),
+            Lists.getUniquePairCharCount(listOf("a", "a", "a", "b", "b", "c", "c", "d", "e", "e", "e", "a", "a")))
+    }
+
+    @Test fun`get unique pair max char count - another`() {
+        assertEquals(hashMapOf(Pair("a", 3), Pair("c", 2), Pair("d", 3), Pair("e", 1)),
+            Lists.getUniquePairCharCount(listOf("a", "a", "a", "c", "c", "a", "c", "d", "d", "d", "e", "a", "a")))
+    }
 }
 
 //

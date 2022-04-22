@@ -541,14 +541,20 @@ class Lists {
             var times = 0
 
             list.forEachIndexed { index, item ->
-                if (index != 0 || item != list[index - 1]) {
-                    encodingList.put(list[index - 1], times);
+                if (index != 0 && item != list[index - 1]) {
+                    val actual = encodingList[list[index - 1]] ?: 0;
+                    if (actual < times) {
+                        encodingList[list[index - 1]] = times;
+                    }
                     times = 0
                 }
                 times++
 
                 if (index == list.lastIndex) {
-                    encodingList.put(item, times);
+                    val actual = encodingList[item] ?: 0;
+                    if (actual < times) {
+                        encodingList[item] = times;
+                    }
                 }
             }
 
