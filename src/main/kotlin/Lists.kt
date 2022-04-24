@@ -535,7 +535,6 @@ class Lists {
          * P101 (*) Run-length encoding of a list (direct solution non duplicated).
          * getUniquePairCharCount receives a text and returns a List of Pair<String, Int> that is non duplicated
          */
-//        todo transform it in unique
         public fun <T> getUniquePairCharCount(list: List<T>): HashMap<T, Int> {
             val encodingList: HashMap<T, Int> = HashMap();
             var times = 0
@@ -557,46 +556,7 @@ class Lists {
                     }
                 }
             }
-
             return encodingList
-        }
-
-//        public fun <T> getUniquePairs(pairList : List<Pair<T, Int>>) : List<Pair<T, Int>> {
-//            val arrayOfKeys: MutableList<T> = mutableListOf()
-//
-//            pairList.forEach { item ->
-//                if (arrayOfKeys.none { item == it }) {
-//                    arrayOfKeys.add(item.first)
-//                }
-//            }
-//
-//            pairList.filter { item -> arrayOfKeys.all { item.first } }
-
-//            val arrayOfPairs: MutableList<Pair<Char, Int>> = mutableListOf()
-//            var filteredArray: MutableList<Pair<Char, Int>> = mutableListOf()
-//            var arrayOfKeys = arrayOfPairs.map { item -> item.first }.filter { item ->  }.sorted()
-
-//            filteredArray = arrayOfPairs.filter { it.first }
-//
-//
-//            arrayOfKeys.forEach(key -> {
-//                val pair = arrayOfPairs.filter(item -> item.key == key).filtro(item -> getMaxValue(item)
-//                finalArrayOfPairs.add(pair);
-//            })
-//
-//            return finalArrayOfPairs;
-//        }
-
-
-        public fun getMaxValue(list: List<Pair<String, Int>>): Pair<String, Int> {
-            var maxValue = list[0].second;
-
-            for (pair in list) {
-                if (pair.second > maxValue) {
-                    maxValue = pair.second
-                }
-            }
-            return Pair(list[0].first, maxValue);
         }
     }
 }
