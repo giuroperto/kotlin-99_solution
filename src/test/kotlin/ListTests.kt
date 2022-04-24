@@ -484,6 +484,16 @@ class ListTests {
         assertEquals(hashMapOf(Pair("a", 3), Pair("c", 2), Pair("d", 3), Pair("e", 1)),
             Lists.getUniquePairCharCount(listOf("a", "a", "a", "c", "c", "a", "c", "d", "d", "d", "e", "a", "a")))
     }
+
+    @Test fun`get unique pair max char count - int`() {
+        assertEquals(hashMapOf(Pair(1, 1)),
+            Lists.getUniquePairCharCount(listOf(1)))
+    }
+
+    @Test fun`get unique pair max char count - empty list`() {
+        assertEquals(hashMapOf<String, Int>(),
+            Lists.getUniquePairCharCount(listOf<String>()))
+    }
 }
 
 //
