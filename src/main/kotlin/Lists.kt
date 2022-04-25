@@ -443,7 +443,9 @@ class Lists {
          * Example: randomSelect(3, "abcdefgh".toList())
          * Returns [c, h, f]
          */
-        public fun randomSelect(list : List<Int>) : Boolean {
+        public fun <T> randomSelect(itemsSelected: Int, list : List<T>) : Boolean {
+            val startIndex = Math.random() * list.size
+            println(startIndex.toInt());
             return true;
         }
 
