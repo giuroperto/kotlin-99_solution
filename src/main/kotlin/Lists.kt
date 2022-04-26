@@ -443,10 +443,17 @@ class Lists {
          * Example: randomSelect(3, "abcdefgh".toList())
          * Returns [c, h, f]
          */
-        public fun <T> randomSelect(itemsSelected: Int, list : List<T>) : Boolean {
-            val startIndex = Math.random() * list.size
-            println(startIndex.toInt());
-            return true;
+        public fun <T> randomSelect(itemsSelected: Int, list : List<T>) : List<T> {
+            val startIndex = (Math.random() * (list.size - itemsSelected)).toInt();
+            val newList: MutableList<T> = mutableListOf<T>();
+            var i = startIndex;
+
+            while (i < startIndex + itemsSelected) {
+                newList.add(list[i]);
+                i++;
+            }
+
+            return newList;
         }
 
         /**

@@ -12,7 +12,7 @@ fun main(args: Array<String>) {
 
 //    println(Lists.decode(list))
 
-    Lists.randomSelect(3, "abcdefgh".toList())
+    println(Lists.randomSelect(3, "abcdefgh".toList()))
 
 // P46
 //    LogicAndCodes.printTruthTable { a, b -> a.and_(a.or_(b.not())) }
