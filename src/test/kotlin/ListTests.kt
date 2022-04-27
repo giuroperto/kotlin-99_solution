@@ -461,6 +461,20 @@ class ListTests {
         assertEquals(listOf(-4, -3, -2, -1), Lists.range(-1, -4))
     }
 
+    // P23
+    @Test fun`range of 3 items to get random 3`() {
+        assertEquals(listOf(3, 2, 1), Lists.randomSelect(3, listOf(3, 2, 1)))
+    }
+
+    @Test(expected = IndexOutOfBoundsException::class)
+    fun`random 3 numbers of empty list`() {
+        Lists.randomSelect(3, listOf<String>())
+    }
+
+    @Test fun`random 0 numbers of list of 2`() {
+        assertEquals(listOf(), Lists.randomSelect(0, listOf(1, 2)))
+    }
+
     // P24
     @Test fun`draw 0 numbers`() {
         assertEquals(listOf(), Lists.lotto(0, 4))
