@@ -9,7 +9,41 @@ class Misc {
          * the queen in the second column is in row 2, etc. Otherwise, feel free to use a data class for queen position.
          */
         public fun Int.eightQueens() : Int {
+            val queensRows: MutableList<Int> = mutableListOf();
+            var board: MutableList<MutableList<Int>> = mutableListOf();
+
+            board = initializeBoard(board);
+
+//            while (!isGameOver()) {
+//
+//            }
+
+//            queensRows.add(1);
+
             return 0
+        }
+
+        private fun initializeBoard(board: List<List<Int>>) : MutableList<MutableList<Int>> {
+            println(board);
+            var row: MutableList<Int> = mutableListOf();
+            var thisBoard: MutableList<MutableList<Int>> = mutableListOf();
+
+            var i = 0;
+
+            while (i < 8) {
+                var j = 0;
+                row.clear();
+                while (j < 8) {
+                    row.add(-1);
+                    j++;
+                }
+                thisBoard.add(row);
+                i++;
+            }
+
+            println("board = " + thisBoard);
+
+            return thisBoard;
         }
 
         /**

@@ -5,6 +5,7 @@ import LogicAndCodes.Companion.nand_
 import LogicAndCodes.Companion.nor_
 import LogicAndCodes.Companion.or_
 import LogicAndCodes.Companion.xor_
+import Misc.Companion.eightQueens
 
 fun main(args: Array<String>) {
     val list: List<Pair<Int, Char>> = listOf(Pair(4, 'a'),
@@ -12,7 +13,7 @@ fun main(args: Array<String>) {
 
 //    println(Lists.decode(list))
 
-    println(Lists.randomSelect(3, "abcdefgh".toList()))
+    8.eightQueens()
 
 // P46
 //    LogicAndCodes.printTruthTable { a, b -> a.and_(a.or_(b.not())) }
