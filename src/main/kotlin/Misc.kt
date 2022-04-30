@@ -14,13 +14,32 @@ class Misc {
 
             board = initializeBoard(board);
 
-//            while (!isGameOver()) {
-//
-//            }
+            while (!isGameOver(board)) {
+                println("game is not over")
+
+                for (row in board) {
+                    row[0] = 0
+                    row[1] = 0
+                    row[2] = 0
+                    row[3] = 0
+                    row[4] = 0
+                    row[5] = 0
+                    row[6] = 0
+                    row[7] = 0
+                }
+            }
 
 //            queensRows.add(1);
 
             return 0
+        }
+
+        private fun isGameOver(board: List<List<Int>>) : Boolean {
+            var totalSum = 0;
+            board.forEach {
+                totalSum += it.reduce { acc, i -> acc + i }
+            }
+            return totalSum >= 0;
         }
 
         private fun initializeBoard(board: List<List<Int>>) : MutableList<MutableList<Int>> {
