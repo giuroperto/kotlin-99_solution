@@ -13,8 +13,10 @@ class Misc {
             var board: MutableList<MutableList<Int>> = mutableListOf();
 
             board = initializeBoard(board);
-            board[0][0] = 1;
-            updateBoard(row, column, board);
+            board.get(0). = 1;
+            println("after setting first"  + board);
+            updateBoard(0, 0, board);
+            println(board);
 
             while (!isGameOver(board)) {
                 println("game is not over")
@@ -52,12 +54,20 @@ class Misc {
         private fun updateBoard(row: Int, column: Int,
                                 board: MutableList<MutableList<Int>>): MutableList<MutableList<Int>> {
             board.forEachIndexed { index, mutableList ->
-                mutableList[column] = 0
-                if (index == row) {
-                    for (item in mutableList) {
-                        item[] = 0;
-                    }
+                if (mutableList[column] == -1) {
+                    mutableList[column] = 0
                 }
+                println("after column" + mutableList)
+
+//                if (index == row) {
+//                    var i = 0;
+//                    while (i < mutableList.size) {
+//                        if (i != column) {
+//                            mutableList[i] = 0;
+//                        }
+//                        i++;
+//                    }
+//                }
             }
             return board
         }
