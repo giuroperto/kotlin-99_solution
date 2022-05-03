@@ -13,7 +13,7 @@ class Misc {
             var board: MutableList<MutableList<Int>> = mutableListOf();
 
             board = initializeBoard(board);
-            board.get(0). = 1;
+//            board.get(0).set(0, 1);
             println("after setting first"  + board);
             updateBoard(0, 0, board);
             println(board);
@@ -80,22 +80,16 @@ class Misc {
             return totalSum >= 0;
         }
 
-        private fun initializeBoard(board: List<List<Int>>) : MutableList<MutableList<Int>> {
+        private fun initializeBoard(board: MutableList<MutableList<Int>>) : MutableList<MutableList<Int>> {
             println(board);
-            var row: MutableList<Int> = mutableListOf();
-            var thisBoard: MutableList<MutableList<Int>> = mutableListOf();
+            var thisBoard: MutableList<MutableList<Int>> = board;
 
-            var i = 0;
-
-            while (i < 8) {
+            for (mutableList in thisBoard) {
                 var j = 0;
-                row.clear();
                 while (j < 8) {
-                    row.add(-1);
+                    mutableList[j] = -1;
                     j++;
                 }
-                thisBoard.add(row);
-                i++;
             }
 
             println("board = " + thisBoard);
