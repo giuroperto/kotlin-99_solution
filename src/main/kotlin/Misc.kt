@@ -11,9 +11,10 @@ class Misc {
         public fun Int.eightQueens() : Int {
             val queensRows: MutableList<Int> = mutableListOf();
             var board: MutableList<MutableList<Int>> = mutableListOf();
+            println(board);
 
-            board = initializeBoard(board);
-//            board.get(0).set(0, 1);
+            board = initializeBoard();
+            board.get(0).set(0, 1);
             println("after setting first"  + board);
             updateBoard(0, 0, board);
             println(board);
@@ -80,18 +81,22 @@ class Misc {
             return totalSum >= 0;
         }
 
-        private fun initializeBoard(board: MutableList<MutableList<Int>>) : MutableList<MutableList<Int>> {
-            println(board);
-            var thisBoard: MutableList<MutableList<Int>> = board;
+        private fun initializeBoard() : MutableList<MutableList<Int>> {
+            val thisBoard: MutableList<MutableList<Int>> = mutableListOf();
 
-            for (mutableList in thisBoard) {
+            var i = 0;
+            while (i < 8) {
+                val row: MutableList<Int> = mutableListOf()
                 var j = 0;
+
                 while (j < 8) {
-                    mutableList[j] = -1;
+                    row.add(-1);
                     j++;
                 }
-            }
 
+                thisBoard.add(row);
+                i++;
+            }
             println("board = " + thisBoard);
 
             return thisBoard;
