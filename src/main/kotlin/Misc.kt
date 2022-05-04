@@ -19,6 +19,7 @@ class Misc {
             updateBoard(0, 0, board);
             println(board);
 
+            // todo add logic to update board
             while (!isGameOver(board)) {
                 println("game is not over")
 
