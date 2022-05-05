@@ -23,17 +23,6 @@ class Misc {
             while (!isGameOver(board)) {
                 println("game is not over")
 
-//                if (checkCanMoveHorizontally()) {
-//
-//                }
-//
-//
-//                    checkCanMoveVertically()
-//                }) {
-//
-//                }
-
-
                 println("board = " + board)
 
                 for (row in board) {
