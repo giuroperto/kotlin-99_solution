@@ -48,17 +48,16 @@ class Misc {
                 if (mutableList[column] == -1) {
                     mutableList[column] = 0
                 }
+                if (index == row) {
+                    var i = 0;
+                    while (i < mutableList.size) {
+                        if (i != column) {
+                            mutableList[i] = 0;
+                        }
+                        i++;
+                    }
+                }
                 println("after column" + mutableList)
-
-//                if (index == row) {
-//                    var i = 0;
-//                    while (i < mutableList.size) {
-//                        if (i != column) {
-//                            mutableList[i] = 0;
-//                        }
-//                        i++;
-//                    }
-//                }
             }
             return board
         }
