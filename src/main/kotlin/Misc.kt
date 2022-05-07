@@ -19,7 +19,6 @@ class Misc {
             updateBoard(0, 0, board);
             println(board);
 
-            // todo add logic to update board
             while (!isGameOver(board)) {
                 println("game is not over")
 
@@ -36,27 +35,23 @@ class Misc {
                     i++;
                 }
 
-                println("board = " + board)
-
-                for (row in board) {
-                    row[0] = 0
-                    row[1] = 0
-                    row[2] = 0
-                    row[3] = 0
-                    row[4] = 0
-                    row[5] = 0
-                    row[6] = 0
-                    row[7] = 0
-                }
+                printBoard(board);
             }
-
-//            queensRows.add(1);
-
             return 0
         }
 
         private fun updateBoard(row: Int, column: Int,
                                 board: MutableList<MutableList<Int>>): MutableList<MutableList<Int>> {
+            var i = row;
+            var j = column;
+            while (i < board.size - 1 && j < board[i].size - 1) {
+                i++;
+                j++;
+                if (board[i][j] == -1) {
+                    board[i][j] = 0;
+                }
+            }
+
             board.forEachIndexed { index, mutableList ->
                 if (mutableList[column] == -1) {
                     mutableList[column] = 0
@@ -70,9 +65,16 @@ class Misc {
                         i++;
                     }
                 }
-                println("after column" + mutableList)
             }
             return board
+        }
+
+        private fun printBoard(board: List<List<Int>>) {
+            var i = 0;
+            while (i < board.size) {
+                println(board[i]);
+                i++;
+            }
         }
 
         private fun isGameOver(board: List<List<Int>>) : Boolean {
