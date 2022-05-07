@@ -23,6 +23,19 @@ class Misc {
             while (!isGameOver(board)) {
                 println("game is not over")
 
+                var i = 0;
+                while (i < board.size) {
+                    var j = 0;
+                    while (j < board[i].size) {
+                        if (board[i][j] == -1) {
+                            board[i][j] = 1;
+                            updateBoard(i, j, board);
+                        }
+                        j++;
+                    }
+                    i++;
+                }
+
                 println("board = " + board)
 
                 for (row in board) {
