@@ -52,6 +52,16 @@ class Misc {
                 }
             }
 
+            i = row;
+            j = column;
+            while (i < board.size - 1 && j > 0) {
+                i++;
+                j--;
+                if (board[i][j] == -1) {
+                    board[i][j] = 0;
+                }
+            }
+
             board.forEachIndexed { index, mutableList ->
                 if (mutableList[column] == -1) {
                     mutableList[column] = 0
