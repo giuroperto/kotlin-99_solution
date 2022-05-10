@@ -37,7 +37,18 @@ class Misc {
 
                 printBoard(board);
             }
-            return 0
+            return sumPieces(board);
+        }
+
+        private fun sumPieces(board: MutableList<MutableList<Int>>): Int {
+            var sum = 0;
+            for (row in board) {
+                for (item in row) {
+                    sum += item;
+                }
+            }
+            println("sum = " + sum);
+            return sum;
         }
 
         private fun updateBoard(row: Int, column: Int,
